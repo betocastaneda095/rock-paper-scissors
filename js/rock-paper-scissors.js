@@ -114,7 +114,9 @@ function playGame(){
 	console.log("Final Human Score:", parseInt(humanScore));
     console.log("Final Computer Score:", parseInt(computerScore));
 
-	
+	alert(`Final score is: \nPlayer: ${parseInt(humanScore)} \nComputer: ${parseInt(computerScore)}`);
 	
 
 }
+
+playGame();
