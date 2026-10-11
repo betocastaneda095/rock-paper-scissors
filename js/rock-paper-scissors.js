@@ -1,6 +1,5 @@
 
 
-
 function getComputerChoise() {
 	let numb = Math.floor(Math.random() * 3);
 	let choiseC = null;
@@ -21,13 +20,12 @@ function getComputerChoise() {
 	return  choiseC;
 }
 
-function getHumanChoise() {
-    let input = prompt('Enter the number of your choise: \n0 for rock, 1 for paper, 2 for scissors');
-    let numb = parseInt(input);
+function getHumanChoise(input) {  
 
-    let choiseH = null;
+    //let numb = parseInt(input);
 
-    	switch(numb) { 
+    let choiseH = input;
+    /*	switch(numb) { 
 		
 		case 0: 
 			choiseH = 'rock';
@@ -39,6 +37,10 @@ function getHumanChoise() {
 			choiseH = 'scissors'
         break;    
 }
+
+*/
+	
+
 	console.log('player: ' + choiseH);
 	return choiseH;
 }
@@ -99,7 +101,7 @@ function playRound(){
 
 
 function playGame(){
-	const roundCounting = parseInt(prompt("How many rounds you want to play?"));
+	const roundCounting = 1;
 	let humanScore = 0;
 	let computerScore = 0;
 
@@ -120,3 +122,18 @@ function playGame(){
 }
 
 playGame();
+
+
+const buttons = document.querySelectorAll('.choice');
+
+buttons.forEach((button) => {
+	button.addEventListener(('click'), () => {
+		const choiseH = getHumanChoise(button.id);
+		console.log("This is the human choice: " + choiseH);
+	})
+});
+
+const spans = document.querySelector('.result');
+
+	spans = document.createElement('span');
+	

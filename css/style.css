@@ -1,0 +1,94 @@
+
+/*CSS resets*/
+body {
+    display:flex;
+    margin:0;
+    background-color:rgba(71, 71, 71, 0.828);
+   
+    align-items:center;
+    flex-direction:column;
+}
+
+
+/*Header Assets*/
+
+.header {
+    margin-top:10%;
+    flex-basis:2px;
+    background-color:blue;
+    width:400px;
+    display:flex;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    justify-content:space-between;
+    box-shadow: 5px 5px 5px black;
+
+}
+
+.header p{
+    margin:2px;
+    padding-left:10px;
+
+}
+
+.header div{
+    display:flex;
+    gap:1px;
+    align-items:center;
+    
+}
+
+/*Container Assets*/
+
+.container {
+    
+    display:flex;
+    flex-basis:300px;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color:rgba(255, 255, 255, 0.8);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+
+/*Choises section assets*/
+
+.choices {
+
+    display:flex;
+    margin-top:1rem;
+    gap:2rem;
+    flex-basis:30px;
+    width:400px;
+    justify-content:center;
+}
+
+.choices button{
+    flex-basis:100px;
+    height:auto;
+    flex-shrink:1;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    border-style:none;
+    box-shadow:black 5px 5px 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*Results section assets*/
+
+.result {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;  
+    margin-top:2.5rem;
+}
+.result p{
+    margin:0;
+    padding:0;
+}
+
+/* ctrl + / is hot key to make a comment..! */
