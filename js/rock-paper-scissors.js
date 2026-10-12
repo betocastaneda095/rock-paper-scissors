@@ -1,139 +1,99 @@
 
 
-function getComputerChoise() {
+function getComputerChoice() {
 	let numb = Math.floor(Math.random() * 3);
-	let choiseC = null;
+	let choiceC = null;
 
 	switch(numb) { 
 		
 		case 0: 
-			choiseC = 'rock';
+			choiceC = 'rock';
 		break;
 		case 1:
-			choiseC = 'paper';	
+			choiceC = 'paper';	
 		break;
 		case 2:
-			choiseC = 'scissors'
+			choiceC = 'scissors'
         break;    
 }
-    console.log('Computer: ' + choiseC);
-	return  choiseC;
+	return  choiceC;
 }
 
-function getHumanChoise(input) {  
+function playRound(input){
+	let playerChoice = input;
+	let machineChoice = getComputerChoice();
+	console.log('player Choice: '+ playerChoice);
+	console.log('machine Choice: '+ machineChoice);
 
-    //let numb = parseInt(input);
 
-    let choiseH = input;
-    /*	switch(numb) { 
-		
-		case 0: 
-			choiseH = 'rock';
-		break;
-		case 1:
-			choiseH = 'paper';	
-		break;
-		case 2:
-			choiseH = 'scissors'
-        break;    
-}
 
-*/
+	//User Choice text display
+
+	const playerChoiceDisplay = document.querySelector('#user-choice');
+	const playerChoiceText = document.createElement('span');
+
+	//Display reset 
+
+	playerChoiceText.textContent = playerChoice;
+	playerChoiceDisplay.appendChild(playerChoiceText);
+	
+	//Computer Choice text display
+
+	const computerChoiceDisplay = document.querySelector('#computer-choice');
+	const computerChoiceText = document.createElement('span');
+	computerChoiceText.textContent = machineChoice;
+	computerChoiceDisplay.appendChild(computerChoiceText);
+
+
+	//Game Winner Display
+	const winnerText = document.querySelector('#winner');
+	const winnerDisplay = document.createElement('span');
+	
 	
 
-	console.log('player: ' + choiseH);
-	return choiseH;
-}
-
-
-function playRound(){
-    let machine = getComputerChoise();
-    let human = getHumanChoise();
-	let humanCount = 0;
-	let machineCount = 0;
-
-    if(machine === human){
-		alert("Draw!");
+	if(playerChoice === machineChoice){
+		winnerDisplay.textContent = " Draw!";
 	}
-	else
-		switch(machine){
-			case 'rock':
-				if(human === 'paper'){
-					alert("You won!!");
-					humanCount = humanCount + 1;
-				}
-				else
-				{
-					alert("You loose!");
-					machineCount = machineCount + 1;
-				}	
+	else{
+		switch(machineChoice){
+			case 'rock': 
+			if(playerChoice === "paper"){
+				winnerDisplay.textContent = " You won!";
+			}else{
+				winnerDisplay.textContent = ' You Loose...';
+			}
 			break;
 
-			case 'paper':
-				if(human === 'scissors'){
-					alert("You won!!");
-					humanCount = humanCount + 1;
-				}
-				else
-				{	
-					alert("You loose!");
-					machineCount = machineCount + 1;
-				}	
+			case 'paper': 
+			if(playerChoice === "scissors"){
+				winnerDisplay.textContent = " You won!";
+			}else{
+				winnerDisplay.textContent = ' You Loose...';
+			}
 			break;
 
-			case 'scissors':
-				if(human === 'rock'){
-					alert("You won!!");
-					humanCount = humanCount + 1;
-				}
-				else
-				{	
-					alert("You loose!");
-					machineCount = machineCount + 1;
-				}	
+			case 'scissors': 
+			if(playerChoice === "rock"){
+				winnerDisplay.textContent = " You won!";
+			}else{
+				winnerDisplay.textContent = ' You Loose...';
+			}
 			break;
+
 		}
-
-		return {machineCount, humanCount};
-	
-}
-
-
-
-function playGame(){
-	const roundCounting = 1;
-	let humanScore = 0;
-	let computerScore = 0;
-
-	for (let count = 0; count < roundCounting; count++){
-
-		const result = playRound();
-
-		humanScore += result.humanCount;
-		computerScore += result.machineCount;
 	}
-
-	console.log("Final Human Score:", parseInt(humanScore));
-    console.log("Final Computer Score:", parseInt(computerScore));
-
-	alert(`Final score is: \nPlayer: ${parseInt(humanScore)} \nComputer: ${parseInt(computerScore)}`);
-	
-
+	winnerText.appendChild(winnerDisplay);
 }
 
-playGame();
+// Buttons add Event Listeners 
 
 
 const buttons = document.querySelectorAll('.choice');
-
 buttons.forEach((button) => {
-	button.addEventListener(('click'), () => {
-		const choiseH = getHumanChoise(button.id);
-		console.log("This is the human choice: " + choiseH);
+	button.addEventListener('click' , () => {
+		playRound(button.id);
 	})
-});
+})
 
-const spans = document.querySelector('.result');
 
-	spans = document.createElement('span');
-	
+
